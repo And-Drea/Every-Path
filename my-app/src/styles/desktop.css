@@ -1,0 +1,131 @@
+/* ====== Overall Layout ====== */
+.desktopPage {
+  /* remove the box look */
+  background: none;
+  border: none;
+  border-radius: 0;
+
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  padding: 3rem 5rem;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+/* ====== Top Right Diamond Icon ====== */
+.topRightIcon {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 1.3rem;
+  color: #bdbdbd;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  padding: 4px 6px;
+  transition: all 0.3s ease;
+}
+
+.topRightIcon:hover {
+  color: #ffb6c1;
+  border-color: #ffb6c1;
+}
+
+/* ====== Profile Section ====== */
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.profileCircle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1.5px solid #bdbdbd;
+  overflow: hidden;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileInfo {
+  font-size: 0.9rem;
+  color: #bdbdbd;
+  line-height: 1.6;
+}
+
+/* ====== Progress Button ====== */
+.progressButton {
+  background: none;
+  border: 1.5px solid #bdbdbd;
+  color: #bdbdbd;
+  border-radius: 8px;
+  padding: 10px 28px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-top: 1.2rem;
+  transition: 0.3s ease;
+}
+
+.progressButton:hover {
+  border-color: #ffb6c1;
+  color: #ffb6c1;
+}
+
+/* ====== Button Grid Section ====== */
+.buttonsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  grid-gap: 1.5rem;
+  align-self: center;
+  justify-content: start;
+  margin-top: 1rem;
+}
+
+.actionButton,
+.actionButtonLink {
+  background: none;
+  border: 1.5px solid #bdbdbd;
+  color: #bdbdbd;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.actionButton:hover,
+.actionButtonLink:hover {
+  border-color: #ffb6c1;
+  color: #ffb6c1;
+  box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 768px) {
+  .desktopPage {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .profileSection {
+    align-items: center;
+  }
+
+  .buttonsGrid {
+    justify-content: center;
+  }
+}
