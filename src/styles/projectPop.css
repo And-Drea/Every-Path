@@ -1,0 +1,73 @@
+/* src/components/projectPop.css */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-box {
+  background: #111;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 12px;
+  padding: 25px;
+  width: 400px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.popup-box h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.popup-box label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.popup-box input,
+.popup-box textarea {
+  width: 100%;
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.popup-box textarea {
+  height: 80px;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.popup-buttons button {
+  background: #2b82f6;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: transparent;
+  border: 1px solid red;
+  color: red;
+}

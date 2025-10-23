@@ -1,0 +1,12 @@
+echo "# Every-Path" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote ad    git push --set-upstream origin maind origin https://github.com/And-Drea/Every-Path.git
+git push -u origin m
+
+React 
+
+npm create vite@latest my-app -- --template react
+npm install

@@ -1,0 +1,178 @@
+
+.skillsPageContainer {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 20px;
+  min-height: 85vh; /* Adjust height */
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+  font-family: 'Consolas', 'Courier New', monospace; /* Monospace font for a dev feel */
+}
+
+/* --- Diamond Navigation --- */
+.diamondNav {
+  position: absolute; /* Position relative to .skillsPageContainer */
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px; /* Space between diamonds */
+}
+
+.diamondButton {
+  background: none;
+  border: none;
+  font-size: 2.2em; /* Size of the diamond */
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  line-height: 1; /* Ensure diamond doesn't get stretched by line-height */
+  transform: rotate(45deg); /* Rotate the square for a diamond shape */
+  color: transparent; /* Hide unicode character */
+  position: relative; /* For background and border */
+  width: 35px; /* Adjust size */
+  height: 35px; /* Adjust size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Inner diamond effect (optional, if you want the actual shape to be colored) */
+.diamondButton::before {
+  content: '\25C7'; /* Actual diamond unicode character for inner fill */
+  position: absolute;
+  font-size: 1em; /* Matches parent font size */
+  transform: rotate(-45deg); /* Counter-rotate the character */
+  color: currentColor; /* Inherit color from the button's specific class */
+}
+
+.diamondButton:hover {
+  transform: rotate(45deg) scale(1.1); /* Slightly larger on hover */
+}
+
+.greenDiamond { border: 2px solid #00ff00; color: #00ff00; } /* Green border */
+.greenDiamond:hover { background-color: rgba(0, 255, 0, 0.2); }
+
+.brownDiamond { border: 2px solid #a0522d; color: #a0522d; } /* Sienna border */
+.brownDiamond:hover { background-color: rgba(160, 82, 45, 0.2); }
+
+.orangeDiamond { border: 2px solid #ffa500; color: #ffa500; } /* Orange border */
+.orangeDiamond:hover { background-color: rgba(255, 165, 0, 0.2); }
+
+.blueDiamond { border: 2px solid #00ffff; color: #00ffff; } /* Cyan border */
+.blueDiamond:hover { background-color: rgba(0, 255, 255, 0.2); }
+
+
+/* --- Main Content Area --- */
+.contentArea {
+  flex-grow: 1;
+  padding: 70px 30px 30px 100px; /* Adjust padding to make space for diamonds */
+}
+
+.topCircles {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.circle {
+  width: 250px;
+  height: 250px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background-color: #333; /* Placeholder dark grey */
+}
+
+.horizontalLine {
+  width: 100%;
+  height: 2px;
+  background-color: #555; /* Grey line */
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  color: #fff;
+  font-size: 1.6em;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Skills Grid --- */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.largeRectangle {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 100px; /* Min height for content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #222; /* Darker background */
+}
+
+.largeRectangle p {
+  margin: 0;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+/* --- Suggestion & Credential Area --- */
+.suggestionArea {
+  display: flex;
+  gap: 50px; /* Space between vertical rectangle and credential section */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.verticalRectangle {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px; /* Fixed width */
+  min-height: 200px; /* Fixed height for a distinct look */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #222;
+  flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.verticalRectangle p {
+  margin: 0;
+  font-size: 1.1em;
+  writing-mode: horizontal-tb; /* Default writing mode */
+}
+
+.credentialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns for credentials */
+  gap: 20px;
+  flex-grow: 1; /* Allow it to take up remaining space */
+}
+
+.smallRectangle {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 15px;
+  min-height: 70px; /* Min height for content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #222;
+}
+
+.smallRectangle p {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.3;
+}
