@@ -60,11 +60,11 @@ const handleJobsClick = () => {
         <button className="actionButton" onClick={handleSkillsClick}>
           SKILLS
         </button>
-        <button  className="actionButtonLink" onClick={handleResumeClick}> {/* Use handler for navigation */}
-          RESUME
+        <button  className="actionButtonLink" onClick={handleCredentialsClick}> {/* Use handler for navigation */}
+          CREDENTAILS
         </button>
 
-        <button  className="actionButtonLink" onClick= {()=> navigate("/resume")}> {/* Use Link for navigation */}
+        <button  className="actionButtonLink" onClick= {()=> navigate("/resume")}> 
           RESUME
         </button>
 

@@ -27,52 +27,56 @@ export default function ResumeBuilder() {
   const [projectList, setProjectList] = useState([]);
   const [editingProject, setEditingProject] = useState(null);
 
-  // --- UI state persistence (popups / editing session) ---
   const [uiStateLoaded, setUiStateLoaded] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   // --- Load Saved Data ---
   useEffect(() => {
-    const savedForm = localStorage.getItem("resumeForm");
-    const savedEducation = localStorage.getItem("educationList");
-    const savedProjects = localStorage.getItem("projectList");
+    try {
+      const savedForm = localStorage.getItem("resumeForm");
+      const savedEducation = localStorage.getItem("educationList");
+      const savedProjects = localStorage.getItem("projectList");
+      const savedUI = localStorage.getItem("resumeUI");
 
-    const savedUI = localStorage.getItem("resumeUI");
-
-    if (savedForm) setFormData(JSON.parse(savedForm));
-    if (savedEducation) setEducationList(JSON.parse(savedEducation));
-    if (savedProjects) setProjectList(JSON.parse(savedProjects));
-
-    if (savedUI) {
-      try {
+      if (savedForm) setFormData(JSON.parse(savedForm));
+      if (savedEducation) setEducationList(JSON.parse(savedEducation));
+      if (savedProjects) setProjectList(JSON.parse(savedProjects));
+      if (savedUI) {
         const obj = JSON.parse(savedUI);
         if (typeof obj.isChatOpen === "boolean") setIsChatOpen(obj.isChatOpen);
-        if (typeof obj.isEducationOpen === "boolean") setIsEducationOpen(obj.isEducationOpen);
-        if (typeof obj.isProjectOpen === "boolean") setIsProjectOpen(obj.isProjectOpen);
+        if (typeof obj.isEducationOpen === "boolean")
+          setIsEducationOpen(obj.isEducationOpen);
+        if (typeof obj.isProjectOpen === "boolean")
+          setIsProjectOpen(obj.isProjectOpen);
         if (obj.editingProject) setEditingProject(obj.editingProject);
-      } catch (e) {
-        // ignore malformed UI state
       }
+    } catch (e) {
+      console.warn("Error loading localStorage", e);
+    } finally {
+      setUiStateLoaded(true);
+      setDataLoaded(true);
     }
-
-    setUiStateLoaded(true);
   }, []);
 
   // --- Auto-Save Data ---
   useEffect(() => {
-    localStorage.setItem("resumeForm", JSON.stringify(formData));
-  }, [formData]);
+    if (dataLoaded)
+      localStorage.setItem("resumeForm", JSON.stringify(formData));
+  }, [formData, dataLoaded]);
 
   useEffect(() => {
-    localStorage.setItem("educationList", JSON.stringify(educationList));
-  }, [educationList]);
+    if (dataLoaded)
+      localStorage.setItem("educationList", JSON.stringify(educationList));
+  }, [educationList, dataLoaded]);
 
   useEffect(() => {
-    localStorage.setItem("projectList", JSON.stringify(projectList));
-  }, [projectList]);
+    if (dataLoaded)
+      localStorage.setItem("projectList", JSON.stringify(projectList));
+  }, [projectList, dataLoaded]);
 
-  // Save UI state (popups, editingProject) with a small debounce to avoid too many writes
+  // --- Save UI state ---
   useEffect(() => {
-    if (!uiStateLoaded) return; // avoid writing default values on initial load
+    if (!uiStateLoaded) return;
     const timeout = setTimeout(() => {
       const ui = {
         isChatOpen,
@@ -80,35 +84,24 @@ export default function ResumeBuilder() {
         isProjectOpen,
         editingProject,
       };
-      try {
-        localStorage.setItem("resumeUI", JSON.stringify(ui));
-      } catch (e) {
-        // localStorage might be full or not available
-      }
+      localStorage.setItem("resumeUI", JSON.stringify(ui));
     }, 150);
-
     return () => clearTimeout(timeout);
   }, [isChatOpen, isEducationOpen, isProjectOpen, editingProject, uiStateLoaded]);
 
-  // Ensure data is saved when the page is unloaded (navigate away / refresh / close)
+  // --- Save on unload ---
   useEffect(() => {
     const handler = () => {
-      try {
-        localStorage.setItem("resumeForm", JSON.stringify(formData));
-        localStorage.setItem("educationList", JSON.stringify(educationList));
-        localStorage.setItem("projectList", JSON.stringify(projectList));
-        const ui = { isChatOpen, isEducationOpen, isProjectOpen, editingProject };
-        localStorage.setItem("resumeUI", JSON.stringify(ui));
-      } catch (e) {
-        // ignore
-      }
+      localStorage.setItem("resumeForm", JSON.stringify(formData));
+      localStorage.setItem("educationList", JSON.stringify(educationList));
+      localStorage.setItem("projectList", JSON.stringify(projectList));
+      const ui = { isChatOpen, isEducationOpen, isProjectOpen, editingProject };
+      localStorage.setItem("resumeUI", JSON.stringify(ui));
     };
-
     window.addEventListener("beforeunload", handler);
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "hidden") handler();
     });
-
     return () => {
       window.removeEventListener("beforeunload", handler);
       document.removeEventListener("visibilitychange", handler);
@@ -121,9 +114,7 @@ export default function ResumeBuilder() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSaveEducation = (data) => {
-    setEducationList((prev) => [...prev, data]);
-  };
+  const handleSaveEducation = (data) => setEducationList((prev) => [...prev, data]);
 
   const handleSaveProject = (project) => {
     if (editingProject) {
@@ -161,15 +152,18 @@ export default function ResumeBuilder() {
 
   return (
     <div className="resume-page relative">
-      {/* Top Navigation Diamonds */}
-      <div className="top-nav">
-        <div className="diamond green" onClick={() => navigate("/")}></div>
-        <div className="diamond gray" onClick={() => navigate("/")}></div>
-        <div className="diamond pink" onClick={() => navigate("/process")}></div>
-        <div className="diamond blue" onClick={() => navigate("/")}></div>
+
+      {/* 🆕 Combined Title and Nav */}
+      <div className="top-bar">
+        <h1 className="page-title">Build a Resume</h1>
+        <div className="top-nav">
+          <div className="diamond green" onClick={() => navigate("/")}></div>
+          <div className="diamond gray" onClick={() => navigate("/")}></div>
+          <div className="diamond pink" onClick={() => navigate("/process")}></div>
+          <div className="diamond blue" onClick={() => navigate("/")}></div>
+        </div>
       </div>
 
-      {/* Main Layout */}
       <div className="content">
         {/* LEFT SIDE — Form Inputs */}
         <div className="form-section">
@@ -180,45 +174,16 @@ export default function ResumeBuilder() {
             value={formData.fullName}
             onChange={handleChange}
           />
-
           <label>City</label>
-          <input
-            type="text"
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-          />
-
+          <input type="text" name="city" value={formData.city} onChange={handleChange} />
           <label>State</label>
-          <input
-            type="text"
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-          />
-
+          <input type="text" name="state" value={formData.state} onChange={handleChange} />
           <label>Phone</label>
-          <input
-            type="text"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-          />
-
+          <input type="text" name="phone" value={formData.phone} onChange={handleChange} />
           <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-
+          <input type="email" name="email" value={formData.email} onChange={handleChange} />
           <label>Professional Summary</label>
-          <textarea
-            name="summary"
-            value={formData.summary}
-            onChange={handleChange}
-          ></textarea>
+          <textarea name="summary" value={formData.summary} onChange={handleChange}></textarea>
 
           <div className="button-group">
             <button>Add Skill</button>
@@ -226,9 +191,7 @@ export default function ResumeBuilder() {
           </div>
 
           <div className="button-group">
-            <button onClick={() => setIsEducationOpen(true)}>
-              Add Education
-            </button>
+            <button onClick={() => setIsEducationOpen(true)}>Add Education</button>
             <button onClick={() => setIsProjectOpen(true)}>Add Project</button>
           </div>
 
@@ -239,18 +202,7 @@ export default function ResumeBuilder() {
             <ChatPopup isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
           </div>
 
-          <button
-            onClick={handleClearData}
-            style={{
-              marginTop: "20px",
-              background: "transparent",
-              border: "1px solid red",
-              color: "red",
-              padding: "6px 12px",
-              borderRadius: "6px",
-              cursor: "pointer",
-            }}
-          >
+          <button onClick={handleClearData} className="clear-button">
             Clear Resume Data
           </button>
         </div>
@@ -270,7 +222,6 @@ export default function ResumeBuilder() {
                 "Motivated and results-oriented professional with experience in your field."}
             </p>
 
-            {/* Education Section */}
             {educationList.length > 0 && (
               <>
                 <h2>Education</h2>
@@ -285,14 +236,12 @@ export default function ResumeBuilder() {
               </>
             )}
 
-            {/* Projects Section */}
             {projectList.length > 0 && (
               <>
                 <h2>Projects</h2>
                 {projectList.map((proj, i) => (
                   <div key={i}>
-                    <strong>{proj.projectName}</strong> — “{proj.role}”,{" "}
-                    {proj.startDate}, {proj.endDate},{" "}
+                    <strong>{proj.projectName}</strong> — “{proj.role}”, {proj.startDate}, {proj.endDate},{" "}
                     {proj.linkUrl && (
                       <a
                         href={proj.linkUrl}
@@ -307,15 +256,7 @@ export default function ResumeBuilder() {
                       {proj.description}
                     </p>
                     <button
-                      style={{
-                        background: "transparent",
-                        color: "#4ea1ff",
-                        border: "1px solid #4ea1ff",
-                        borderRadius: "6px",
-                        padding: "4px 10px",
-                        marginTop: "6px",
-                        cursor: "pointer",
-                      }}
+                      className="edit-button"
                       onClick={() => handleEditProject(proj)}
                     >
                       Edit
@@ -326,6 +267,14 @@ export default function ResumeBuilder() {
               </>
             )}
           </div>
+
+          {/* 🆕 Static Tip Message */}
+          <div className="user-message">
+            💡 Build a standard Resume in a fast and simple way!
+              Add projects, core skill and education details to show recruiters
+              why they should choose you! Don't worry everything is saved 
+              -Re-bot is here to help assist you and answer any questons!
+          </div>
         </div>
       </div>
 
@@ -335,7 +284,6 @@ export default function ResumeBuilder() {
         onClose={() => setIsEducationOpen(false)}
         onSave={handleSaveEducation}
       />
-
       <ProjectPopup
         isOpen={isProjectOpen}
         onClose={() => {
