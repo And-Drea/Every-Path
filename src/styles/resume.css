@@ -20,6 +20,18 @@ body {
   box-sizing: border-box;
 }
 
+/* ====== Page Title ====== */
+.page-title {
+  text-align: center;
+  font-size: 2.4em;
+  color: #e6f0ff;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(102, 163, 255, 0.5);
+  
+}
+
 /* ====== Top Navigation Diamonds ====== */
 .top-nav {
   display: flex;
@@ -114,7 +126,7 @@ button {
   background: linear-gradient(145deg, #003366, #004080);
   border: 1px solid #99b3ff;
   color: #e6f0ff;
-  padding: 8px 16px;
+  padding: 20px 20px;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -220,16 +232,6 @@ button:hover {
   white-space: pre-line;
 }
 
-/* ====== Page Title ====== */
-.page-title {
-  text-align: center;
-  font-size: 2.4em;
-  color: #e6f0ff;
-  font-weight: 700;
-  margin-bottom: 25px;
-  letter-spacing: 1px;
-  text-shadow: 0 0 12px rgba(102, 163, 255, 0.5);
-}
 
 /* ====== User Message Under Preview ====== */
 .user-message {

@@ -1,9 +1,9 @@
 // src/components/ResumeBuilder.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ChatPopup from "./chatPop";
-import EducationPopup from "./educationPop";
-import ProjectPopup from "./projectPop";
+import ChatPopup from "../popups/chatPop";
+import EducationPopup from "../popups/educationPop";
+import ProjectPopup from "../popups/projectPop";
 
 export default function ResumeBuilder() {
   const navigate = useNavigate();
@@ -153,14 +153,16 @@ export default function ResumeBuilder() {
   return (
     <div className="resume-page relative">
 
-      {/* 🆕 Combined Title and Nav */}
+      {/*  Combined Title and Nav */}
       <div className="top-bar">
-        <h1 className="page-title">Build a Resume</h1>
         <div className="top-nav">
           <div className="diamond green" onClick={() => navigate("/")}></div>
           <div className="diamond gray" onClick={() => navigate("/")}></div>
           <div className="diamond pink" onClick={() => navigate("/process")}></div>
           <div className="diamond blue" onClick={() => navigate("/")}></div>
+          <div className="top-bar">
+            <h1 className= "page-title"> Build-a-Resume</h1>
+          </div>
         </div>
       </div>
 
@@ -188,6 +190,7 @@ export default function ResumeBuilder() {
           <div className="button-group">
             <button>Add Skill</button>
             <button>Add Award</button>
+            <button>Add Experience</button>
           </div>
 
           <div className="button-group">
@@ -197,7 +200,7 @@ export default function ResumeBuilder() {
 
           <div className="relative block">
             <button className="api-button" onClick={() => setIsChatOpen((p) => !p)}>
-              Re-bot
+              REMU
             </button>
             <ChatPopup isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
           </div>

@@ -1,0 +1,134 @@
+/* src/components/JobBoard.css */
+
+body {
+  background-color: #0a192f;
+  color: #e0e8ff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0a192f;
+  color: #a8c7ff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #1f4aff;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #4ca3ff;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-buttons button {
+  background-color: #112240;
+  color: #a8c7ff;
+  border: 1px solid #1f4aff;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-buttons button:hover {
+  background-color: #1a3a80;
+  color: #fff;
+}
+
+/* Search */
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.search-bar {
+  width: 60%;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #1f4aff;
+  background-color: #112240;
+  color: #e0e8ff;
+}
+
+/* Layout */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Filters */
+.filter-section {
+  background-color: #112240;
+  border: 1px solid #1f4aff;
+  border-radius: 12px;
+  padding: 1rem;
+  color: #a8c7ff;
+}
+
+.filter-section h4 {
+  margin-bottom: 1rem;
+  color: #4ca3ff;
+}
+
+.filter-section select {
+  width: 100%;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  padding: 0.4rem;
+  border-radius: 8px;
+  border: 1px solid #1f4aff;
+  background-color: #0a192f;
+  color: #e0e8ff;
+}
+
+/* Job Cards */
+.jobs-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.job-card {
+  background-color: #112240;
+  border: 1px solid #1f4aff;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: 0.3s;
+}
+
+.job-card:hover {
+  border-color: #4ca3ff;
+  transform: scale(1.02);
+}
+
+.more-button {
+  grid-column: 1 / -1;
+  margin: 1rem auto;
+  display: block;
+  background-color: #1f4aff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.more-button:hover {
+  background-color: #4ca3ff;
+}

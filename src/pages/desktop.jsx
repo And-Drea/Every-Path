@@ -22,11 +22,13 @@ export default function DesktopPage() {
 const handleCredentialsClick = () => {
     alert('Credentials button clicked! (You can add a modal or section display here)');
 }
+
+//buttons that work 
 /* jobs   */
 const handleJobsClick = () => {
-    alert('Jobs button clicked! (You can add a modal or section display here)');
+    navigate('job-board');;
 }
-//buttons that work 
+
 /* resume  */
   const handleResumeClick = () => {
     navigate('/resume');
