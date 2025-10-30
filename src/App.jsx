@@ -1,4 +1,3 @@
-// App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import DesktopPage from './pages/desktop';
@@ -7,6 +6,7 @@ import ProcessPage from './pages/process';
 import JobBoard from './pages/jobSeek';
 import JobInfo from './pages/jobInfo';
 import AboutMe from './pages/aboutMe';
+
  // Import global styles
 import './styles/desktop.css'; // Import desktop styles
 import './styles/resume.css'; // Import resume styles
