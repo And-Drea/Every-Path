@@ -13,7 +13,7 @@ import './styles/resume.css'; // Import resume styles
 import './styles/process.css'; // Import process styles
 import './styles/jobseek.css'; // Import job board styles
 import './styles/jobInfo.css'; // Import job info styles
-import './styles/aboutme.css'; // Import about me styles
+import './styles/aboutMe.css'; // Import about me styles
 
 
  
