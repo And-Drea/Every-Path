@@ -12,7 +12,7 @@ import './styles/desktop.css'; // Import desktop styles
 import './styles/resume.css'; // Import resume styles
 import './styles/process.css'; // Import process styles
 import './styles/jobseek.css'; // Import job board styles
-import './styles/jobinfo.css'; // Import job info styles
+import './styles/jobInfo.css'; // Import job info styles
 import './styles/aboutme.css'; // Import about me styles
 
 
