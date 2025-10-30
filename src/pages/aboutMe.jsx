@@ -9,7 +9,7 @@ export default function AboutMe() {
     <div className="aboutPage">
       {/* ===== TITLE ===== */}
       <h1 className="aboutTitle">Every Path</h1>
-      <p className="aboutSubtitle">Your Journey. Your Growth. Your Voice.</p>
+      <p className="aboutSubtitle">Your Journey. Your Growth. Your Choice.</p>
 
       {/* ===== MAIN CARD ===== */}
       <div className="aboutCard">
