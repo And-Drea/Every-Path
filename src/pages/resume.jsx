@@ -5,6 +5,7 @@ import ChatPopup from "../popups/chatPop";
 import EducationPopup from "../popups/educationPop";
 import ProjectPopup from "../popups/projectPop";
 
+
 export default function ResumeBuilder() {
   const navigate = useNavigate();
 
@@ -58,7 +59,7 @@ export default function ResumeBuilder() {
     }
   }, []);
 
-  // --- Auto-Save Data ---
+  // --- Auto-save ---
   useEffect(() => {
     if (dataLoaded)
       localStorage.setItem("resumeForm", JSON.stringify(formData));
@@ -114,7 +115,8 @@ export default function ResumeBuilder() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSaveEducation = (data) => setEducationList((prev) => [...prev, data]);
+  const handleSaveEducation = (data) =>
+    setEducationList((prev) => [...prev, data]);
 
   const handleSaveProject = (project) => {
     if (editingProject) {
@@ -151,21 +153,20 @@ export default function ResumeBuilder() {
   };
 
   return (
-    <div className="resume-page relative">
-
-      {/*  Combined Title and Nav */}
-      <div className="top-bar">
-        <div className="top-nav">
-          <div className="diamond green" onClick={() => navigate("/")}></div>
-          <div className="diamond gray" onClick={() => navigate("/")}></div>
-          <div className="diamond pink" onClick={() => navigate("/process")}></div>
-          <div className="diamond blue" onClick={() => navigate("/")}></div>
-          <div className="top-bar">
-            <h1 className= "page-title"> Build-a-Resume</h1>
-          </div>
+    <div className="resume-page">
+      {/* ✅ Top navigation bar - copied structure */}
+      <div className="nav-bar">
+        <div className="nav-left">
+          <button onClick={() => navigate("/desktop")}>Desktop</button>
+          <button onClick={() => navigate("/resume")}>Resume</button>
+          <button onClick={() => navigate("/process")}>Process</button>
+          <button onClick={() => navigate("/job-board")}>Jobs</button>
         </div>
+        <h1 className="nav-title">Build a Resume</h1>
+        <div className="nav-right"></div>
       </div>
 
+      {/* ===== Page Content ===== */}
       <div className="content">
         {/* LEFT SIDE — Form Inputs */}
         <div className="form-section">
@@ -271,12 +272,12 @@ export default function ResumeBuilder() {
             )}
           </div>
 
-          {/* 🆕 Static Tip Message */}
+          {/* Static Tip Message */}
           <div className="user-message">
             💡 Build a standard Resume in a fast and simple way!
-              Add projects, core skill and education details to show recruiters
-              why they should choose you! Don't worry everything is saved 
-              -Re-bot is here to help assist you and answer any questons!
+            Add projects, core skills, and education details to show recruiters
+            why they should choose you! Everything is saved —
+            Re-bot is here to help assist you and answer any questions!
           </div>
         </div>
       </div>

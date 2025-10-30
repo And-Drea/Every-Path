@@ -32,38 +32,44 @@ body {
   
 }
 
-/* ====== Top Navigation Diamonds ====== */
-.top-nav {
+/* ====== Top Navigation (matches Job Board layout) ====== */
+.nav-bar {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  background: rgba(0, 26, 51, 0.7);
+  padding: 15px 30px;
+  border-bottom: 5px solid #66a3ff;
+  box-shadow: 0 0 12px rgba(102, 163, 255, 0.3);
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 10px;
 }
 
-.diamond {
-  width: 20px;
-  height: 20px;
-  transform: rotate(45deg);
-  border: 2px solid #66a3ff;
-  cursor: pointer;
+.nav-left button {
+  background: none;
+  border: 1.5px solid #66a3ff;
+  color: #cce0ff;
+  padding: 8px 18px;
+  margin-right: 12px;
+  border-radius: 6px;
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
-.diamond:hover {
-  box-shadow: 0 0 8px rgba(102, 163, 255, 0.8);
+.nav-left button:hover {
+  background-color: #004080;
+  box-shadow: 0 0 10px rgba(102, 163, 255, 0.6);
+  transform: scale(1.05);
 }
 
-.green {
-  background-color: #2ecc71;
-}
-.gray {
-  background-color: #6c7a89;
-}
-.pink {
-  background-color: #e74c3c;
-}
-.blue {
-  background-color: #1abc9c;
+.nav-title {
+  color: #e6f0ff;
+  font-size: 1.8em;
+  text-align: center;
+  flex-grow: 1;
+  text-shadow: 0 0 10px rgba(102, 163, 255, 0.7);
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 /* ====== Layout Structure ====== */

@@ -72,7 +72,7 @@ export default function ChatPopup({ isOpen, onClose }) {
               className="chat-header"
               onPointerDown={(event) => dragControls.start(event)} // 👈 start drag here
             >
-              <h3 className="font-semibold">Re-bot AI</h3>
+              <h3 className="font-semibold">REMU</h3>
               <button onClick={onClose} className="text-white hover:text-black">
                 ×
               </button>

@@ -4,48 +4,20 @@ import { useNavigate } from "react-router-dom";
 export default function ProcessPage() {
   const navigate = useNavigate();
 
-  const handleDiamondClick = (path) => {
-    navigate(path);
-  };
-
   return (
     <div className="processPageContainer">
-      {/* Top Navigation Diamonds */}
-      <div className="diamondNav">
-        <button
-          className="diamondButton greenDiamond"
-          onClick={() => handleDiamondClick("/")}
-          aria-label="Navigate to Desktop"
-        >
-          &#9671;
-        </button>
-        <button
-          className="diamondButton redDiamond"
-          onClick={() => handleDiamondClick("/resume")}
-          aria-label="Navigate to Resume"
-        >
-          &#9671;
-        </button>
-        <button
-          className="diamondButton blueDiamond activeDiamond"
-          onClick={() => handleDiamondClick("/process")}
-          aria-label="Navigate to Process"
-        >
-          &#9671;
-        </button>
-        <button
-          className="diamondButton tealDiamond"
-          onClick={() => handleDiamondClick("/another-page")}
-          aria-label="Navigate to Another Page"
-        >
-          &#9671;
-        </button>
+      {/* ===== Top Navigation Bar ===== */}
+      <div className="navBar">
+        <div className="navButtons">
+          <button onClick={() => navigate("/desktop")}>Desktop</button>
+          <button onClick={() => navigate("/resume")}>Resume</button>
+          <button onClick={() => navigate("/process")}>Process</button>
+          <button onClick={() => navigate("/job-board")}>Jobs</button>
+        </div>
+        <h1 className="navTitle">Your Process To Success</h1>
       </div>
 
-      {/* Page Title */}
-      <h1 className="processTitle">Your Process To Success</h1>
-
-      {/* Main Content Area */}
+      {/* ===== Main Content ===== */}
       <div className="contentArea">
         <div className="topCircles">
           <div className="circle"></div>
@@ -55,7 +27,6 @@ export default function ProcessPage() {
 
         <div className="horizontalLine"></div>
 
-        {/* Skills Section */}
         <h2 className="sectionTitle">Skills</h2>
         <div className="skillsGrid">
           <div className="largeRectangle">
@@ -69,7 +40,6 @@ export default function ProcessPage() {
           </div>
         </div>
 
-        {/* Suggestion & Credential Section */}
         <div className="suggestionArea">
           <div className="verticalRectangle">
             <p>New Idea / Project Suggestion</p>

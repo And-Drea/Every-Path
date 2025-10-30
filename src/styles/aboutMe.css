@@ -1,0 +1,85 @@
+.aboutPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #001f3f, #004080);
+  color: #f0f8ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ===== TITLE ===== */
+.aboutTitle {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #66b2ff;
+  letter-spacing: 2px;
+}
+
+.aboutSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+/* ===== MAIN CARD ===== */
+.aboutCard {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  max-width: 850px;
+  width: 100%;
+  text-align: left;
+}
+
+.aboutCard h2 {
+  color: #66b2ff;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.aboutCard p,
+.aboutCard ul {
+  color: #e6f0ff;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.aboutCard ul {
+  margin-left: 1.5rem;
+  list-style: disc;
+}
+
+.highlight {
+  color: #99ccff;
+  font-weight: 600;
+}
+
+/* ===== BUTTON ===== */
+.peekButton {
+  margin-top: 2rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.peekButton:hover {
+  background-color: #3399ff;
+  transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+.aboutFooter {
+  margin-top: 2.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}

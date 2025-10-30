@@ -1,0 +1,200 @@
+/* ====== JOB DETAIL PAGE ====== */
+
+.jobDetailContainer {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #0a0f2c, #030614);
+  color: #e0e6ff;
+  padding: 3rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header */
+.jobHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jobTitle {
+  font-size: 2rem;
+  color: #66aaff;
+  text-shadow: 0 0 10px #0088ff;
+}
+
+.backButton {
+  background: transparent;
+  border: 2px solid #66aaff;
+  color: #66aaff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.backButton:hover {
+  background: #66aaff;
+  color: #fff;
+}
+
+/* Main Grid */
+.jobDetailGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2.5rem;
+}
+
+.leftPanel,
+.rightPanel {
+  background: rgba(10, 20, 50, 0.4);
+  border: 1px solid #1f4fa0;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 0 12px #003d99;
+}
+
+.leftPanel h2 {
+  color: #80bfff;
+  margin-bottom: 1rem;
+}
+
+.leftPanel li {
+  background: rgba(20, 40, 90, 0.5);
+  margin: 0.4rem 0;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border-left: 3px solid #3399ff;
+}
+
+.infoBox,
+.descriptionBox,
+.overallBox {
+  margin-bottom: 1.5rem;
+}
+
+.infoBox h3,
+.descriptionBox h3,
+.overallBox h3 {
+  color: #80bfff;
+  margin-bottom: 0.6rem;
+}
+
+/* ===== Additional Section ===== */
+.additionalSection {
+  background: rgba(10, 25, 60, 0.6);
+  border: 1px solid #1f4fa0;
+  border-radius: 18px;
+  padding: 2rem;
+  margin-top: 1rem;
+  box-shadow: 0 0 18px rgba(0, 102, 255, 0.4);
+}
+
+.additionalSection h2 {
+  color: #7abfff;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  text-shadow: 0 0 8px #0088ff;
+}
+
+.additionalGrid {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.infoCard {
+  flex: 1;
+  min-width: 240px;
+  background: rgba(15, 35, 80, 0.55);
+  border: 1px solid #2c66cc;
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px #003d99;
+}
+
+.infoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #0099ff;
+}
+
+.infoCard h3 {
+  color: #6bb8ff;
+  margin-bottom: 0.5rem;
+}
+
+.infoCard p {
+  color: #d6e3ff;
+  font-size: 0.95rem;
+}
+
+/* Lists inside job info: make them compact and use subtle custom bullets */
+.infoCard ul,
+.leftPanel ul,
+.additionalSection ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.infoCard li,
+.additionalSection li {
+  margin: 6px 0;
+  padding-left: 18px;
+  position: relative;
+  text-align: left;
+  color: #d6e7ff;
+  background: transparent;
+}
+
+.infoCard li::before,
+.additionalSection li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  background: #4ea1ff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(78,161,255,0.06);
+}
+
+/* keep the styled boxed look for leftPanel requirements (existing style) but remove double padding when using ul/li */
+.leftPanel li {
+  background: rgba(20, 40, 90, 0.5);
+  margin: 0.4rem 0;
+  padding: 0.6rem 1rem 0.6rem 1.2rem;
+  border-radius: 10px;
+  border-left: 3px solid #3399ff;
+  list-style: none;
+}
+
+/* Bottom Section */
+.bottomSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Start Button */
+.startButton {
+  background: linear-gradient(90deg, #007bff, #00bfff);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #007bff;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.startButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #00bfff;
+}

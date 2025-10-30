@@ -12,8 +12,9 @@ export default function JobBoard() {
     date: "",
   });
 
-  const navigate = useNavigate(); // navigation hook
-
+  const navigate = useNavigate(); // navigation 
+  
+//for filter section 
   const handleFilterChange = (key, value) => {
     setFilters((prev) => ({
       ...prev,
@@ -35,14 +36,15 @@ export default function JobBoard() {
         }
         return String(field).toLowerCase().includes(term);
       });
-
+      //different filter options 
+      /*remote or hybrid or on-site */
     const matchesType =
       !filters.type || job.type.toLowerCase() === filters.type.toLowerCase();
-
+      /* base of location */
     const matchesLocation =
       !filters.location ||
       job.location.toLowerCase().includes(filters.location.toLowerCase());
-
+      /* deadline dates */
     const matchesDate =
       !filters.date ||
       job.deadline.toLowerCase().includes(filters.date.toLowerCase());
@@ -63,15 +65,16 @@ export default function JobBoard() {
       {/* ===== HEADER WITH NAVIGATION ===== */}
       <header className="header">
         <div className="nav-buttons">
-          <button onClick={() => navigate("/")}>Desktop</button>
+          <button onClick={() => navigate("/desktop")}>Desktop</button>
           <button onClick={() => navigate("/resume")}>Resume</button>
           <button onClick={() => navigate("/process")}>Process</button>
+          <button onClick={() => navigate("/job-board")}>Jobs</button>
         </div>
         <h1 className="page-title">Job Seeking</h1>
       </header>
 
       {/* ===== SEARCH BAR ===== */}
-      <div className="search-container">
+    <div className="search-container">
         <input
           type="text"
           placeholder="Search any keyword..."
@@ -137,11 +140,15 @@ export default function JobBoard() {
         <div className="jobs-section">
           {visibleJobs.length > 0 ? (
             visibleJobs.map((job, index) => (
-              <div key={index} className="job-card">
-                <h3>{job.jobName}</h3>
-                <p>Type: {job.type}</p>
-                <p>Location: {job.location}</p>
-              </div>
+             <div
+             key={index}
+            className="job-card"
+            onClick={() => navigate(`/job/${index}`)} // 👈 navigate to JobDetail page
+      >
+            <h3>{job.jobName}</h3>
+            <p>Type: {job.type}</p>
+            <p>Location: {job.location}</p>
+        </div>
             ))
           ) : (
             <p className="no-results">No jobs found.</p>
