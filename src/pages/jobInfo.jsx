@@ -144,35 +144,11 @@ export default function JobDetail() {
           </div>
           <div className="infoCard">
             <h3>Certificates</h3>
-            {(() => {
-              // job data uses either `certificates` or `certifications` in different files
-              const certField = job.certificates ?? job.certifications ?? null;
-              const certs = normalizeFieldToList(certField);
-              return certs.length > 0 ? (
-                <ul>
-                  {certs.map((c, i) => (
-                    <li key={i}>{c}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No certificates required.</p>
-              );
-            })()}
+            <p>{job.certificates || "No certificates required."}</p>
           </div>
           <div className="infoCard">
             <h3>Connections</h3>
-            {(() => {
-              const conns = normalizeFieldToList(job.connections);
-              return conns.length > 0 ? (
-                <ul>
-                  {conns.map((c, i) => (
-                    <li key={i}>{c}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No connections required.</p>
-              );
-            })()}
+            <p>{job.connections || "No connections required."}</p>
           </div>
         </div>
       </div>
