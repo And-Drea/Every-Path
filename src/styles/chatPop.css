@@ -79,6 +79,32 @@
   font-size: 0.95rem;
 }
 
+.chat-bubble.bot p {
+  margin: 6px 0;
+}
+
+.chat-bubble.bot strong {
+  color: #4da6ff;
+}
+
+.chat-bubble.bot ul {
+  margin: 8px 0;
+  padding-left: 18px;
+}
+
+.chat-bubble.bot li {
+  list-style: disc;
+  margin: 4px 0;
+}
+
+.chat-bubble.bot code {
+  background: #111;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: "Consolas", monospace;
+}
+
+
 /* User messages: aligned right, distinct color */
 .chat-bubble.user {
   background-color: #0078ff;
@@ -139,4 +165,53 @@
 .chat-input:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+/* Paragraphs inside bubbles */
+.chat-bubble p {
+  margin: 6px 0;
+}
+
+/* Headings */
+.chat-bubble h1, .chat-bubble h2, .chat-bubble h3 {
+  margin: 6px 0;
+  font-weight: 700;
+}
+
+/* Links */
+.chat-bubble a {
+  color: #66b6ff;
+  text-decoration: underline;
+}
+
+/* Inline code */
+.chat-inline-code {
+  background: rgba(255,255,255,0.04);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: "Consolas", monospace;
+  font-size: 0.9em;
+}
+
+/* Block code */
+.chat-code-block {
+  background: #0b0b0b;
+  border: 1px solid #222;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+/* Make code text monospace */
+.chat-code-block code {
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.92rem;
+}
+
+/* List styling */
+.chat-bubble ul {
+  margin: 6px 0 6px 18px;
+}
+.chat-bubble li {
+  margin: 4px 0;
 }

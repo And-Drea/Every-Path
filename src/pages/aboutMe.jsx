@@ -8,35 +8,50 @@ export default function AboutMe() {
   return (
     <div className="aboutPage">
       {/* ===== TITLE ===== */}
-      <h1 className="aboutTitle">Every Path</h1>
-      <p className="aboutSubtitle">Your Journey. Your Growth. Your Choice.</p>
+      <h1 className="aboutTitle">Every-Path</h1>
+      <p className="aboutSubtitle">Start exploring your career journey!</p>
 
       {/* ===== MAIN CARD ===== */}
       <div className="aboutCard">
-        <h2>Our Mission</h2>
+        <h2>Check Out Jobs</h2>
         <p>
-        For each induvial is free to choose there path to  specific jobs,  —{" "}
-          <span className="highlight">
-            working their way to become to loudest in the room.
-          </span>{" "}
-          Whether it’s gaining new skills, earning experience, or building a
-          resume that speaks for you, Every Path gives you the tools to grow,
-          learn, and shine.
+          Browse different opportunities that match your interests and explore
+          what paths are available for you.
         </p>
 
-        <h2>What We Stand For</h2>
-        <ul>
-          <li>Empowering people to define success on their own terms</li>
-          <li>Creating real opportunities for skill-building and growth</li>
-          <li>Helping you become the loudest in the room — through your own effort</li>
-        </ul>
-
-        <h2>Why We Built This</h2>
+        <h2>Pick One to Begin</h2>
         <p>
-          Sometimes, all you need is a little push — a chance to prove your
-          potential. Every Path is that push, designed to help you become{" "}
-          <strong>the prize employers are searching for.</strong> It’s not about
-          where you start, but the strength you build along the way.
+          Choose a job path you’d like to focus on and start learning what it
+          takes to succeed in that role.
+        </p>
+
+        <h2>Work Toward Qualifying</h2>
+        <p>
+          Build the skills, gain experience, and learn everything you need to
+          become the best candidate for that job.
+        </p>
+
+        <h2>Already Prepared?</h2>
+        <p>
+          Great! You’re ready to take the next step toward your dream career.
+        </p>
+
+        <h2>Create Your Resume</h2>
+        <p>
+          Showcase your strengths, highlight your achievements, and get your
+          resume ready to send out to employers.
+        </p>
+
+        <h2>Test Your Skills</h2>
+        <p>
+          Challenge yourself with practice tests, simulations, or real-world
+          projects to see how well you’re prepared.
+        </p>
+
+        <h2>Earn Certificates</h2>
+        <p>
+          Collect as many certifications as you can to stand out and prove your
+          expertise in your chosen field.
         </p>
       </div>
 

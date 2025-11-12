@@ -33,7 +33,7 @@ export default function DesktopPage() {
 
   // 🔹 NEW: navigate to About Me
   const handleAboutClick = () => {
-    navigate('/');
+    navigate('/aboutme');
   };
 
   return (
