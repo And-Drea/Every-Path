@@ -53,6 +53,7 @@
   border: 1.5px solid #000000;
   border-radius: 0.6rem;
   font-size: 0.95rem;
+  color: #1f2937; /* Add a dark color for the text */
   transition: border-color 0.2s;
 }
 
