@@ -77,6 +77,7 @@ export default function DesktopPage() {
       {/* Progress Button */}
       <button className="actionButton progressButton" onClick={handleProcessClick}>
         PROGRESS
+        
       </button>
     </div>
   );
